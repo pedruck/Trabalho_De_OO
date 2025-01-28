@@ -1,6 +1,6 @@
-package cadastros.especificos;
+package pessoas_fisicas.especificos;
 
-import cadastros.Pessoa;
+import pessoas_fisicas.Pessoa;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,5 +42,5 @@ public class Medico extends Pessoa
 
     //to do: deletar get e sets nao utilizados
 
-    
+
 }

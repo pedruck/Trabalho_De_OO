@@ -1,4 +1,4 @@
-package cadastros;
+package pessoas_fisicas;
 
 public abstract class Pessoa
 {
