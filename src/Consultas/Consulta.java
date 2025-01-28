@@ -24,6 +24,8 @@ public class Consulta {
      exames = _exames;
      medicamentos = _medicamentos;
      valor = _valor;
+     //la ele
+     //la ele
     }
 }
 
