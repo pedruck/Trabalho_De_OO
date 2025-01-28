@@ -1,5 +1,31 @@
+import menus.MenuPrincipal;
+
+import javax.swing.*;
+
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world");
+    public static void main(String[] args)
+    {
+
+
+
+    int option = MenuPrincipal.MenuPrincipalGeral();
+
+    switch (option)
+    {
+        case 1:
+
+            option = MenuPrincipal.MenuPrincipalCadastros();
+            break;
+
+        case 2:
+
+            option = MenuPrincipal.MenuPrincipalConsultas();
+            break;
+
+
+    }
+
+    //to do: execoes do joptionpannel
+
     }
 }
