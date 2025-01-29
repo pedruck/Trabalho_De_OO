@@ -4,6 +4,8 @@ import javax.swing.*;
 
 public class MenuPrincipal
 {
+
+
     public static int MenuPrincipalGeral()
     {
         String opcoes =
@@ -50,6 +52,41 @@ public class MenuPrincipal
 
 
 
+    }
+
+
+    public static void RunMenuPrincipal()
+    {
+        int option = MenuPrincipal.MenuPrincipalGeral();
+
+        switch (option)
+        {
+            case 1:
+
+                option = MenuPrincipal.MenuPrincipalCadastros();
+                switch (option)
+                {
+                    case 1:
+
+                        MenuCadastroPaciente.MenuCadastroNome();
+                        break;
+
+                    case 2:
+
+                        MenuCadastroPaciente.MenuCadastroNome();
+                        break;
+
+
+                }
+                break;
+
+            case 2:
+
+                option = MenuPrincipal.MenuPrincipalConsultas();
+                break;
+
+
+        }
     }
 
 }

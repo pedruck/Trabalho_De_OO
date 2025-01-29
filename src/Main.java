@@ -1,3 +1,4 @@
+import menus.MenuCadastroPaciente;
 import menus.MenuPrincipal;
 
 
@@ -8,23 +9,10 @@ public class Main {
 
 
 
-    int option = MenuPrincipal.MenuPrincipalGeral();
-
-    switch (option)
-    {
-        case 1:
-
-            option = MenuPrincipal.MenuPrincipalCadastros();
-            break;
-
-        case 2:
-
-            option = MenuPrincipal.MenuPrincipalConsultas();
-            break;
+    MenuPrincipal.RunMenuPrincipal();
 
 
-    }
-
+    //codigo temporario
     //to do: execoes do joptionpannel
 
     }
