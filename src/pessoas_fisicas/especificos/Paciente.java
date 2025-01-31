@@ -7,12 +7,11 @@ import java.util.Objects;
 
 public class Paciente extends Pessoa
 {
-
     private List<Objects> historico;
-
-
 
     public Paciente(String _nome, String _cpf, String _data_nascimento) {
         super(_nome, _cpf, _data_nascimento);
     }
 }
+
+//separar o array de historico em consultas e exames?

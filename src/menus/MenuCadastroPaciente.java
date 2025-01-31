@@ -24,53 +24,52 @@ public class MenuCadastroPaciente
         return cadastro;
     }
 
-
-
     public static void MenuCadastroNome()
     {
         String dialogo = "Informe o nome do paciente:";
 
-        String option_pannel = JOptionPane.showInputDialog(dialogo);
-        String input = String.valueOf(option_pannel);
-
-        nome = input;
-
-        MenuCadastroCpf();
-
+        nome = JOptionPane.showInputDialog(dialogo);
+        if (nome == null) {
+            MenuPrincipal.RunMenuPrincipal();
+            return;
+        }
+        else{
+            MenuCadastroCpf(); }
     }
+
     public static void MenuCadastroCpf()
     {
         String dialogo = "Informe o cpf do paciente:";
 
-        String option_pannel = JOptionPane.showInputDialog(dialogo);
-        String input = String.valueOf(option_pannel);
+        String cpfInput = JOptionPane.showInputDialog(dialogo);
+        cpf = cpfInput;
 
-        cpf = input;
+        if (cpfInput == null) {
+            MenuPrincipal.RunMenuPrincipal();
+            return;
+        }
 
-
-        if(paciente != null && cadastro.PesquisarPaciente(input) != null )
-        {
+        if(paciente != null && cadastro.PesquisarPaciente(cpfInput) != null ) {
             JOptionPane.showMessageDialog(new JFrame("Cadastro concluido!"),
                     "ERRO: CPF já cadastrado!");
             nome = "";
             MenuPrincipal.RunMenuPrincipal();
-
         }
-        else
-        {
+        else {
             MenuCadastroDataNascimento();
         }
-
     }
 
     public static void MenuCadastroDataNascimento()
     {
         String dialogo = "Informe a data de nascimento do paciente:";
+        String dataInput = JOptionPane.showInputDialog(dialogo);
+        data_nascimento = dataInput;
 
-        String option_pannel = JOptionPane.showInputDialog(dialogo);
-        String input = String.valueOf(option_pannel);
-
-        data_nascimento = input;
+        if (dataInput == null) {
+            MenuPrincipal.RunMenuPrincipal();
+            return;
+        }
 
         paciente = new Paciente(nome, cpf, data_nascimento);
 

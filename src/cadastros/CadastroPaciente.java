@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CadastroPaciente
-{
+public class CadastroPaciente {
 
     private List<Paciente> pacientes;
 
@@ -16,8 +15,6 @@ public class CadastroPaciente
         pacientes = new ArrayList<Paciente>();
 
     }
-
-
 
     public Paciente PesquisarPaciente(String cpf)
     {
