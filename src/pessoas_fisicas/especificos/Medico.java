@@ -6,21 +6,21 @@ import java.util.Objects;
 
 public class Medico extends Pessoa
 {
-    private int crm;
+    private String crm;
     private String especialidade;
     private List<Objects> historico;
 
-    protected Medico(String _nome, String _cpf, String _data_nascimento) {
+    public Medico(String _nome, String _cpf, String _data_nascimento, String _crm, String _especialidade) {
         super(_nome, _cpf, _data_nascimento);
-
-
+        this.crm = _crm;
+        this.especialidade = _especialidade;
     }
 
-    public int getCrm() {
+    public String getCrm() {
         return crm;
     }
 
-    public void setCrm(int crm) {
+    public void setCrm(String crm) {
         this.crm = crm;
     }
 
@@ -41,6 +41,7 @@ public class Medico extends Pessoa
     }
 
     //to do: deletar get e sets nao utilizados
+    //separar o array de historico em consultas e exames?
 
 
 }
