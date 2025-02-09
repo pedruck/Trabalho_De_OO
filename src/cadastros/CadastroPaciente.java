@@ -1,5 +1,6 @@
 package cadastros;
 
+import pessoas_fisicas.especificos.Medico;
 import pessoas_fisicas.especificos.Paciente;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.Objects;
 
 public class CadastroPaciente {
 
-    private List<Paciente> pacientes;
+    private static List<Paciente> pacientes;
 
     public CadastroPaciente()
     {
@@ -16,7 +17,7 @@ public class CadastroPaciente {
 
     }
 
-    public Paciente PesquisarPaciente(String cpf)
+    public static Paciente PesquisarPaciente(String cpf)
     {
         for (Paciente p: pacientes)
         {
@@ -41,12 +42,17 @@ public class CadastroPaciente {
         }
     }
 
-    public void RemoverPaciente(Paciente _paciente)
-    {
-        pacientes.remove(_paciente);
+//    public static void RemoverPaciente(Paciente _paciente)
+//    {
+//        pacientes.remove(_paciente);
+//    }
+
+    public static void RemoverPaciente(String cpf) {
+        Paciente paciente = PesquisarPaciente(cpf);
+        if (paciente != null) {
+            pacientes.remove(paciente);
+        }
     }
-
-
 
 
 }
