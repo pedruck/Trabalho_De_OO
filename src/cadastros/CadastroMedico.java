@@ -9,13 +9,13 @@ import java.util.Objects;
 
 public class CadastroMedico {
 
-    private List<Medico> medicos;
+    private static List<Medico> medicos;
 
     public CadastroMedico() {
         medicos = new ArrayList<Medico>();
     }
 
-    public Medico PesquisarMedico(String cpf) {
+    public static Medico PesquisarMedico(String cpf) {
         for (Medico m: medicos) {
             if (Objects.equals(m.getCpf(), cpf)) {
                 return m;
@@ -30,15 +30,11 @@ public class CadastroMedico {
         }
     }
 
-    public void RemoverMedico(Medico medico) {
-        medicos.remove(medico);
-    } //fiz igual o do CadastroPaciente, mas acho que a gente devia fazer o remove por cpf (exemplo de baixo)
-
-    /*public void RemoverMedico(String cpf) {
+    public static void RemoverMedico(String cpf) {
         Medico medico = PesquisarMedico(cpf);
         if (medico != null) {
             medicos.remove(medico);
         }
-    }*/
+    }
 
 }

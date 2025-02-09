@@ -90,6 +90,46 @@ public class MenuCadastroMedico {
         ConfirmarCadastro(); }
     }
 
+    public static void MenuPesquisarMedico() {
+        String dialogo = "Informe o CPF do médico:";
+        String cpfInput = JOptionPane.showInputDialog(dialogo);
+
+        if (cpfInput == null) {
+            MenuPrincipal.RunMenuPrincipal();
+            return;
+        }
+
+        cpfInput = cpfInput.trim();
+        Medico medicoEncontrado = CadastroMedico.PesquisarMedico(cpfInput);
+
+        if (medicoEncontrado == null) {
+            JOptionPane.showMessageDialog(null, "Erro: Médico não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+            MenuPrincipal.RunMenuPrincipal();
+            return;
+        }
+
+        JOptionPane.showMessageDialog(null,
+                "Informações cadastradas do médico:\n" +
+                        "Nome: " + medicoEncontrado.getNome() + "\n" +
+                        "CPF: " + medicoEncontrado.getCpf() + "\n" +
+                        "Data de Nascimento: " + medicoEncontrado.getData_nascimento() + "\n" +
+                        "CRM: " + medicoEncontrado.getCrm() + "\n" +
+                        "Especialidade: " + medicoEncontrado.getEspecialidade(),
+                "Cadastro Encontrado", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+
+    public static void MenuRemoverMedico() {
+        String dialogo = "Informe o cpf a ser removido:";
+        String cpfInput = JOptionPane.showInputDialog(dialogo);
+        cpf = cpfInput;
+
+        CadastroMedico.RemoverMedico(cpf);
+
+        JOptionPane.showMessageDialog(null, "Cadastro removido!");
+        MenuPrincipal.RunMenuPrincipal();
+    }
+
     public static void ConfirmarCadastro() {
         medico = new Medico(nome, cpf, dataNascimento, crm, especialidade);
 
