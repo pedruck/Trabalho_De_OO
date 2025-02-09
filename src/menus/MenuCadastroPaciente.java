@@ -1,5 +1,6 @@
 package menus;
 
+import cadastros.CadastroMedico;
 import cadastros.CadastroPaciente;
 import pessoas_fisicas.especificos.Paciente;
 
@@ -59,6 +60,44 @@ public class MenuCadastroPaciente
             MenuCadastroDataNascimento();
         }
     }
+
+    public static void MenuRemoverPaciente() {
+        String dialogo = "Informe o cpf a ser removido:";
+        String cpfInput = JOptionPane.showInputDialog(dialogo);
+        cpf = cpfInput;
+
+        CadastroPaciente.RemoverPaciente(cpf);
+
+        JOptionPane.showMessageDialog(null, "Cadastro removido!");
+        MenuPrincipal.RunMenuPrincipal();
+    }
+
+    public static void MenuPesquisarPaciente() {
+        String dialogo = "Informe o CPF do paciente:";
+        String cpfInput = JOptionPane.showInputDialog(dialogo);
+
+        if (cpfInput == null) {
+            MenuPrincipal.RunMenuPrincipal();
+            return;
+        }
+
+        cpfInput = cpfInput.trim();
+        Paciente pacienteEncontrado = CadastroPaciente.PesquisarPaciente(cpfInput);
+
+        if (pacienteEncontrado == null) {
+            JOptionPane.showMessageDialog(null, "Erro: Paciente não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+            MenuPrincipal.RunMenuPrincipal();
+            return;
+        }
+
+        JOptionPane.showMessageDialog(null,
+                "Informações cadastradas do paciente:\n" +
+                        "Nome: " + pacienteEncontrado.getNome() + "\n" +
+                        "CPF: " + pacienteEncontrado.getCpf() + "\n" +
+                        "Data de Nascimento: " + pacienteEncontrado.getData_nascimento(),
+                "Cadastro Encontrado", JOptionPane.INFORMATION_MESSAGE);
+    }
+
 
     public static void MenuCadastroDataNascimento()
     {
