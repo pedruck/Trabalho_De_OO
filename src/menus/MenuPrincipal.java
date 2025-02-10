@@ -20,8 +20,9 @@ public class MenuPrincipal
 
     public static int MenuPrincipalCadastros() {
         String opcoes =
-                        "1 - Menu de cadastro Médico\n" +
-                        "2 - Menu de cadastro Paciente\n" +
+                "Selecione o tipo de cadastro" + "\n" +
+                        "1 - Cadastro Médico\n" +
+                        "2 - Cadastro Paciente\n" +
                         "0 - Voltar";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
@@ -70,6 +71,16 @@ public class MenuPrincipal
         return opcao;
     }
 
+    public static void ErroOpcaoInvalida() {
+
+        JOptionPane.showMessageDialog(null, "Erro: Opção Invalida!", "Erro", JOptionPane.ERROR_MESSAGE);
+        MenuPrincipal.RunMenuPrincipal();
+
+    }
+
+
+
+
     public static void RunMenuPrincipal() {
         int option = MenuPrincipal.MenuPrincipalGeral();
 
@@ -81,64 +92,96 @@ public class MenuPrincipal
                 {
                     case 1:
 
-                        option = MenuPrincipal.CadastrarMedico();
-                        switch (option)
-                        {
-                            case 1:
-                                MenuCadastroMedico.MenuCadastroNome();
-                                break;
-
-                            case 2:
-                                //adicionar menu atualizar medico
-                                break;
-
-                            case 3:
-                                MenuCadastroMedico.MenuRemoverMedico();
-                                break;
-
-                            case 4:
-                                MenuCadastroMedico.MenuPesquisarMedico();
-
-                            case 0:
-                                MenuPrincipal.RunMenuPrincipal();
-                                break;
-                        }
+                        RunMenuCadastroMedico(option);
+                        break;
 
                     case 2:
+                        RunMenuCadastroPaciente(option);
 
-                        option = MenuPrincipal.CadastrarPaciente();
-                        switch (option)
-                        {
-                            case 1:
-                                MenuCadastroPaciente.MenuCadastroNome();
-                                break;
-
-                            case 2:
-                                //adicionar menu atualizar paciente
-                                break;
-
-                            case 3:
-                                MenuCadastroPaciente.MenuRemoverPaciente();
-                                break;
-
-                            case 4:
-                                MenuCadastroPaciente.MenuPesquisarPaciente();
-
-                            case 0:
-                                MenuPrincipal.RunMenuPrincipal();
-                                break;
-                        }
+                        break;
 
                     case 0:
 
                         RunMenuPrincipal();
                         break;
+
+                    default:
+                        ErroOpcaoInvalida();
+                        break;
                 }
-                break;
+
+            break;
 
             case 2:
 
                 option = MenuPrincipal.MenuPrincipalConsultas();
+                break;
+
+            default:
+                ErroOpcaoInvalida();
+                break;
+
+        }
+    }
+
+    public static void RunMenuCadastroPaciente(int option)
+    {
+        option = MenuPrincipal.CadastrarPaciente();
+        switch (option)
+        {
+            case 1:
+                MenuCadastroPaciente.MenuCadastroNome();
+                break;
+
+            case 2:
+                //adicionar menu atualizar paciente
+                break;
+
+            case 3:
+                MenuCadastroPaciente.MenuRemoverPaciente();
+                break;
+
+            case 4:
+                MenuCadastroPaciente.MenuPesquisarPaciente();
+
+            case 0:
+                MenuPrincipal.RunMenuPrincipal();
+                break;
+
+            default:
+
+                ErroOpcaoInvalida();
+                break;
+        }
+    }
+
+    public static void RunMenuCadastroMedico(int option)
+    {
+        option = MenuPrincipal.CadastrarMedico();
+        switch (option)
+        {
+            case 1:
+                MenuCadastroMedico.MenuCadastroNome();
+                break;
+
+            case 2:
+                //adicionar menu atualizar medico
+                break;
+
+            case 3:
+                MenuCadastroMedico.MenuRemoverMedico();
+                break;
+
+            case 4:
+                MenuCadastroMedico.MenuPesquisarMedico();
+                break;
+
+            case 0:
+                MenuPrincipal.RunMenuPrincipal();
+                break;
+
+            default:
+                ErroOpcaoInvalida();
                 break;
 
 
@@ -146,3 +189,6 @@ public class MenuPrincipal
     }
 
 }
+
+
+
