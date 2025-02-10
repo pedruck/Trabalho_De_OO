@@ -13,9 +13,12 @@ public class MenuPrincipal
                 "0 - Sair";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
-        int opcao = Integer.parseInt(option_pannel);
-
-        return opcao;
+        if (option_pannel == null)
+        {
+            System.exit(0);
+            return 0;
+        }
+        else { return Integer.parseInt(option_pannel); }
     }
 
     public static int MenuPrincipalCadastros() {
@@ -26,9 +29,12 @@ public class MenuPrincipal
                         "0 - Voltar";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
-        int opcao = Integer.parseInt(option_pannel);
-
-        return opcao;
+        if (option_pannel == null)
+        {
+            System.exit(0);
+            return 0;
+        }
+        else { return Integer.parseInt(option_pannel); }
     }
 
     public static int MenuPrincipalConsultas() {
@@ -38,9 +44,16 @@ public class MenuPrincipal
                         "0 - Voltar";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
-        int opcao = Integer.parseInt(option_pannel);
 
-        return opcao;
+        if (option_pannel == null)
+        {
+            System.exit(0);
+            return 0;
+        }
+        else { return Integer.parseInt(option_pannel); }
+
+
+
     }
 
     public static int CadastrarMedico() {
@@ -52,9 +65,12 @@ public class MenuPrincipal
                         "0 - Voltar";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
-        int opcao = Integer.parseInt(option_pannel);
-
-        return opcao;
+        if (option_pannel == null)
+        {
+            System.exit(0);
+            return 0;
+        }
+        else { return Integer.parseInt(option_pannel); }
     }
 
     public static int CadastrarPaciente() {
@@ -66,9 +82,12 @@ public class MenuPrincipal
                         "0 - Voltar";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
-        int opcao = Integer.parseInt(option_pannel);
-
-        return opcao;
+        if (option_pannel == null)
+        {
+            System.exit(0);
+            return 0;
+        }
+        else { return Integer.parseInt(option_pannel); }
     }
 
     public static void ErroOpcaoInvalida() {
@@ -81,112 +100,139 @@ public class MenuPrincipal
 
 
 
+
     public static void RunMenuPrincipal() {
-        int option = MenuPrincipal.MenuPrincipalGeral();
 
-        switch (option) {
-            case 1:
+    try
+    {
 
-                option = MenuPrincipal.MenuPrincipalCadastros();
+
+
+            int option = MenuPrincipal.MenuPrincipalGeral();
+
+            switch (option) {
+                case 1:
+
+                    option = MenuPrincipal.MenuPrincipalCadastros();
+                    switch (option)
+                    {
+                        case 1:
+
+                            RunMenuCadastroMedico(option);
+                            break;
+
+                        case 2:
+                            RunMenuCadastroPaciente(option);
+
+                            break;
+
+                        case 0:
+
+                            RunMenuPrincipal();
+                            break;
+
+                        default:
+                            ErroOpcaoInvalida();
+                            break;
+                    }
+
+                break;
+
+                case 2:
+
+                    option = MenuPrincipal.MenuPrincipalConsultas();
+                    break;
+
+                default:
+                    ErroOpcaoInvalida();
+                    break;
+
+            }
+    }
+    catch(NumberFormatException e)
+    {
+        ErroOpcaoInvalida();
+    }
+    }
+
+    public static void RunMenuCadastroPaciente(int option)
+        {
+            try
+            {
+                option = MenuPrincipal.CadastrarPaciente();
                 switch (option)
                 {
                     case 1:
-
-                        RunMenuCadastroMedico(option);
+                        MenuCadastroPaciente.MenuCadastroNome();
                         break;
 
                     case 2:
-                        RunMenuCadastroPaciente(option);
+                        //adicionar menu atualizar paciente
+                        break;
 
+                    case 3:
+                        MenuCadastroPaciente.MenuRemoverPaciente();
+                        break;
+
+                    case 4:
+                        MenuCadastroPaciente.MenuPesquisarPaciente();
+
+                    case 0:
+                        MenuPrincipal.RunMenuPrincipal();
+                        break;
+
+                    default:
+
+                        ErroOpcaoInvalida();
+                        break;
+                }
+            }
+            catch (NumberFormatException e)
+            {
+                ErroOpcaoInvalida();
+            }
+        }
+
+        public static void RunMenuCadastroMedico(int option)
+        {
+            try {
+
+                option = MenuPrincipal.CadastrarMedico();
+                switch (option) {
+                    case 1:
+                        MenuCadastroMedico.MenuCadastroNome();
+                        break;
+
+                    case 2:
+                        //adicionar menu atualizar medico
+                        break;
+
+                    case 3:
+                        MenuCadastroMedico.MenuRemoverMedico();
+                        break;
+
+                    case 4:
+                        MenuCadastroMedico.MenuPesquisarMedico();
                         break;
 
                     case 0:
-
-                        RunMenuPrincipal();
+                        MenuPrincipal.RunMenuPrincipal();
                         break;
 
                     default:
                         ErroOpcaoInvalida();
                         break;
+
+
                 }
-
-            break;
-
-            case 2:
-
-                option = MenuPrincipal.MenuPrincipalConsultas();
-                break;
-
-            default:
-                ErroOpcaoInvalida();
-                break;
-
-        }
-    }
-
-    public static void RunMenuCadastroPaciente(int option)
-    {
-        option = MenuPrincipal.CadastrarPaciente();
-        switch (option)
-        {
-            case 1:
-                MenuCadastroPaciente.MenuCadastroNome();
-                break;
-
-            case 2:
-                //adicionar menu atualizar paciente
-                break;
-
-            case 3:
-                MenuCadastroPaciente.MenuRemoverPaciente();
-                break;
-
-            case 4:
-                MenuCadastroPaciente.MenuPesquisarPaciente();
-
-            case 0:
-                MenuPrincipal.RunMenuPrincipal();
-                break;
-
-            default:
+            }
+            catch (NumberFormatException e)
+            {
 
                 ErroOpcaoInvalida();
-                break;
+
+            }
         }
-    }
-
-    public static void RunMenuCadastroMedico(int option)
-    {
-        option = MenuPrincipal.CadastrarMedico();
-        switch (option)
-        {
-            case 1:
-                MenuCadastroMedico.MenuCadastroNome();
-                break;
-
-            case 2:
-                //adicionar menu atualizar medico
-                break;
-
-            case 3:
-                MenuCadastroMedico.MenuRemoverMedico();
-                break;
-
-            case 4:
-                MenuCadastroMedico.MenuPesquisarMedico();
-                break;
-
-            case 0:
-                MenuPrincipal.RunMenuPrincipal();
-                break;
-
-            default:
-                ErroOpcaoInvalida();
-                break;
-
-
-        }
-    }
 
 }
 
