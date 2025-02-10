@@ -31,6 +31,13 @@ public class CadastroPaciente {
         return null;
     }
 
+    public static void AtualizarPaciente(Paciente paciente, String nome, String data_nascimento, String novocpf)
+    {
+            paciente.setData_nascimento(data_nascimento);
+            paciente.setNome(nome);
+            paciente.setCpf(novocpf);
+    }
+
 
     public void CadastrarPaciente(Paciente _paciente)
     {
