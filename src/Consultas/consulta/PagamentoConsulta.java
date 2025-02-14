@@ -1,5 +1,4 @@
-import java.math.BigDecimal; // Importação correta
-
+import java.math.BigDecimal;
 public class Pagamento {
     public static void realizarPagamento(Consulta consulta, BigDecimal valorPago) {
         if (consulta == null) throw new IllegalArgumentException("Consulta não encontrada.");
