@@ -1,3 +1,5 @@
+package Consultas;
+
 public class PrincipalConsulta {
     public static void main(String[] args) {
         Consulta consulta = new Consulta("2025-02-15", "10:00", "João da Silva", "Dr. Carlos", "Agendada", "150.00");
