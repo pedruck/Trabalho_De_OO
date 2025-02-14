@@ -4,7 +4,6 @@ public class Medicamento {
     private int quantidade;
     private String instrucoes;
 
-    // Construtor
     public Medicamento(String nome, String dosagem, int quantidade, String instrucoes) {
         this.nome = nome;
         this.dosagem = dosagem;
@@ -12,7 +11,6 @@ public class Medicamento {
         this.instrucoes = instrucoes;
     }
 
-    // Métodos getters
     public String getNome() {
         return nome;
     }
