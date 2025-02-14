@@ -204,7 +204,7 @@ public class MenuPrincipal
                         break;
 
                     case 2:
-                        //adicionar menu atualizar medico
+                        MenuAtualizarMedico.MenuAtualizarCadastro();
                         break;
 
                     case 3:

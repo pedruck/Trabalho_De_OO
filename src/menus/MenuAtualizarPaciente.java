@@ -15,7 +15,7 @@ public class MenuAtualizarPaciente
 
 
     public static void MenuAtualizarCadastro() {
-        String dialogo = "Informe o cpf do cadastro do paciente a ser informado";
+        String dialogo = "Informe o cpf do cadastro do paciente a ser atualizado";
 
         String cpfInput = JOptionPane.showInputDialog(dialogo);
 
@@ -43,7 +43,6 @@ public class MenuAtualizarPaciente
 
         if (cpfInput == null) {
             MenuPrincipal.RunMenuPrincipal();
-            return;
         }
 
 
@@ -70,7 +69,7 @@ public class MenuAtualizarPaciente
     private static void AtualizarDataNascimento()
     {
 
-        String dialogo = "Para atualizar a data de nascimento do paciente, escreva a  nova data de nascimento do abaixo!\n"
+        String dialogo = "Para atualizar a data de nascimento do paciente, escreva a nova data de nascimento do abaixo!\n"
                 + "Caso não queira atualizar a data de nascimento do paciente, digite '0'.";
         String input = JOptionPane.showInputDialog(dialogo);
         if(!Objects.equals(input, "0"))

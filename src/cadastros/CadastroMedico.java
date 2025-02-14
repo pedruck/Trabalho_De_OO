@@ -24,6 +24,13 @@ public class CadastroMedico {
         return null;
     }
 
+    public static void AtualizarMedico(Medico medico, String nome, String data_nascimento, String novocpf)
+    {
+        medico.setData_nascimento(data_nascimento);
+        medico.setNome(nome);
+        medico.setCpf(novocpf);
+    }
+
     public void CadastrarMedico(Medico medico) {
         if (PesquisarMedico(medico.getCpf()) == null) {
             medicos.add(medico);

@@ -52,7 +52,7 @@ public class Consulta {
 
     public String getValor() {return valor;}
 
-    public void setValor(double valor) {this.valor = valor;}
+    public void setValor(String valor) {this.valor = valor;}
 
     public String getExames() {return exames;}
 
