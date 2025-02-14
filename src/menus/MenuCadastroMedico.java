@@ -116,6 +116,7 @@ public class MenuCadastroMedico {
                         "CRM: " + medicoEncontrado.getCrm() + "\n" +
                         "Especialidade: " + medicoEncontrado.getEspecialidade(),
                 "Cadastro Encontrado", JOptionPane.INFORMATION_MESSAGE);
+        MenuPrincipal.RunMenuPrincipal();
     }
 
 

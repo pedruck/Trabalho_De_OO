@@ -53,7 +53,7 @@ public class MenuCadastroPaciente
         if(paciente != null && cadastro.PesquisarPaciente(cpfInput) != null ) {
             JOptionPane.showMessageDialog(new JFrame("Cadastro concluido!"),
                     "ERRO: CPF já cadastrado!");
-            nome = "";
+
             MenuPrincipal.RunMenuPrincipal();
         }
         else {
@@ -123,6 +123,8 @@ public class MenuCadastroPaciente
         MenuPrincipal.RunMenuPrincipal();
 
     }
+
+
 
     //codigo temporario
 
