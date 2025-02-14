@@ -8,7 +8,6 @@ public class Consulta {
     private boolean pago;  // Indica se a consulta foi paga
     private Prescricao prescricao;  // A consulta agora tem uma prescrição associada
 
-    // Construtor
     public Consulta(String data, String horario, String paciente, String medico, String status,
                     String valor) {
         this.data = data;
@@ -21,7 +20,6 @@ public class Consulta {
         this.prescricao = new Prescricao();  // Inicializa a prescrição para essa consulta
     }
 
-    // Métodos getters
     public String getValor() {
         return valor;
     }
