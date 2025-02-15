@@ -84,4 +84,20 @@ public class Consulta {
     public void exibirMedicamentos() {
         exibirPrescricao();
     }
+
+    public String getData() {
+        return data;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public String getMedico() {
+        return medico;
+    }
+
+    public String getPaciente() {
+        return paciente;
+    }
 }

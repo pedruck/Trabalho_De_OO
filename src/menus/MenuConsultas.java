@@ -8,6 +8,7 @@ import pessoas_fisicas.especificos.Paciente;
 
 import javax.swing.*;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class MenuConsultas {
     private static String data;
@@ -19,26 +20,20 @@ public class MenuConsultas {
     private static String exames;
     private static String medicamentos;
     private boolean pagamentoRealizado = false;
-    private static Consulta consulta;
+    private static CadastroConsultas consulta;
+    private static Consulta consultaAtual;
     private static Paciente _paciente;
 
-    private static Consulta CreateConsulta(String data, String horario, String cpfpaciente, String cpfmedico, String status , BigDecimal valor)
-    {
-
-         return consulta = new Consulta(data, horario, cpfpaciente ,cpfmedico, status, valor);
 
 
-    }
-
-    public static Consulta GetConsulta()
+    private static CadastroConsultas GetCadastro()
     {
         if (consulta == null)
         {
-            return null;
+            consulta = new CadastroConsultas();
+
         }
-
         return consulta;
-
     }
 
 
@@ -89,10 +84,16 @@ public class MenuConsultas {
 
 
 
-        CreateConsulta(data, horario, duracao, paciente, medico, BigDecimal.valueOf(Long.parseLong(valor)));
+        consultaAtual = new Consulta(data, horario, paciente, medico,"Agendada", BigDecimal.valueOf(Long.parseLong(valor)));
+        GetCadastro().CadastrarConsulta(consultaAtual);
         MenuPrincipal.RunMenuPrincipal();
         //ProximoMenu();
     }
+
+
+
+
+
 
 
 
