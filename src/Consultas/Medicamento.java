@@ -29,11 +29,12 @@ public class Medicamento {
         return instrucoes;
     }
 
-    public void exibirInformacoes() {
-        System.out.println("Medicamento: " + nome);
-        System.out.println("Dosagem: " + dosagem);
-        System.out.println("Quantidade: " + quantidade);
-        System.out.println("Instruções: " + instrucoes);
-        System.out.println("-----------------------------");
+    public String exibirInformacoes() {
+        return
+        "Medicamento: " + nome + "\n" +
+        "Dosagem: " + dosagem + "\n" +
+        "Quantidade: " + quantidade + "\n" +
+        "Instruções: " + instrucoes;
+
     }
 }
