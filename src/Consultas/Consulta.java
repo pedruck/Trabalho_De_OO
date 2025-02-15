@@ -35,16 +35,16 @@ public class Consulta {
         return new Consulta(data, horario, paciente, medico, status, valor);
     }
 
-    public void realizarPagamento(BigDecimal valorPago) {
+    public String realizarPagamento(BigDecimal valorPago) {
         if (valor == null) throw new IllegalArgumentException("Valor da consulta inválido.");
         if (valorPago.compareTo(valor) >= 0) {
             this.pago = true;
             this.status = "Paga";
-            System.out.println("Pagamento realizado com sucesso! Status: " + this.status);
+            return ("Pagamento realizado com sucesso! Status: " + this.status);
         } else {
             this.pago = false;
             this.status = "Pendente";
-            System.out.println("Pagamento insuficiente. Status: " + this.status);
+            return ("Pagamento insuficiente. Status: " + this.status);
         }
     }
 
@@ -53,14 +53,19 @@ public class Consulta {
         this.prescricao.add(medicamento);
     }
 
-    public void exibirPrescricao() {
+    public String exibirPrescricao()
+    {
+        String retorno = "";
         if (prescricao.isEmpty()) {
-            System.out.println("Nenhum medicamento prescrito.");
+            return "Nenhum medicamento prescrito.";
         } else {
-            System.out.println("Medicamentos prescritos:");
             for (Medicamento medicamento : prescricao) {
-                medicamento.exibirInformacoes();
+                retorno += medicamento.exibirInformacoes() + "\n";
             }
+
+
+            return "Medicamentos prescritos:" + "\n" + retorno;
+
         }
     }
 
