@@ -137,6 +137,23 @@ public class MenuPrincipal
                 case 2:
 
                     option = MenuPrincipal.MenuPrincipalConsultas();
+                    switch (option)
+                    {
+                        case 1:
+                            MenuConsultas.MenuDataConsulta();
+
+                            break;
+
+                        case 2:
+
+
+                            break;
+
+                        default:
+                            ErroOpcaoInvalida();
+                            break;
+
+                    }
                     break;
 
 
