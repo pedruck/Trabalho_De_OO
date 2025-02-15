@@ -29,7 +29,6 @@ public class Medicamento {
         return instrucoes;
     }
 
-    // Método para exibir informações sobre o medicamento
     public void exibirInformacoes() {
         System.out.println("Medicamento: " + nome);
         System.out.println("Dosagem: " + dosagem);

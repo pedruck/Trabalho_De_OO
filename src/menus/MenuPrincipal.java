@@ -5,7 +5,6 @@ import javax.swing.*;
 public class MenuPrincipal
 {
 
-
     public static int MenuPrincipalGeral() {
         String opcoes =
                 "1 - Cadastros\n" +
@@ -98,9 +97,6 @@ public class MenuPrincipal
     }
 
 
-
-
-
     public static void RunMenuPrincipal() {
 
     try
@@ -142,6 +138,7 @@ public class MenuPrincipal
 
                     option = MenuPrincipal.MenuPrincipalConsultas();
                     break;
+
 
                 default:
                     ErroOpcaoInvalida();

@@ -71,4 +71,12 @@ public class Consulta {
     public BigDecimal getValor() {
         return valor;
     }
+
+    public Consulta getPrescricao() {
+        return this;
+    }
+
+    public void exibirMedicamentos() {
+        exibirPrescricao();
+    }
 }
