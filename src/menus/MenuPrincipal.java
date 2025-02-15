@@ -40,6 +40,7 @@ public class MenuPrincipal
         String opcoes =
                         "1 - Agendar Consulta\n" +
                         "2 - Pagamento de Consultas\n" +
+                                "3 - Pesquisar Consulta" + "\n" +
                         "0 - Voltar";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);

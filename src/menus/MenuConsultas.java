@@ -7,6 +7,7 @@ import cadastros.CadastroPaciente;
 import pessoas_fisicas.especificos.Paciente;
 
 import javax.swing.*;
+import java.math.BigDecimal;
 
 public class MenuConsultas {
     private static String data;
@@ -18,17 +19,28 @@ public class MenuConsultas {
     private static String exames;
     private static String medicamentos;
     private boolean pagamentoRealizado = false;
-    private static CadastroConsultas consulta;
+    private static Consulta consulta;
     private static Paciente _paciente;
 
-    private static CadastroConsultas GetConsulta()
+    private static Consulta CreateConsulta(String data, String horario, String cpfpaciente, String cpfmedico, String status , BigDecimal valor)
     {
-     if (consulta == null)
-     {
-         consulta = new CadastroConsultas();
-     }
-     return consulta;
+
+         return consulta = new Consulta(data, horario, cpfpaciente ,cpfmedico, status, valor);
+
+
     }
+
+    public static Consulta GetConsulta()
+    {
+        if (consulta == null)
+        {
+            return null;
+        }
+
+        return consulta;
+
+    }
+
 
 
     public static void MenuDataConsulta() {
@@ -57,7 +69,7 @@ public class MenuConsultas {
     }
     public static void MenuMedicoConsulta(){
         String dialogo = "Informe o cpf do medico da consulta:";
-        paciente = JOptionPane.showInputDialog(dialogo);
+        medico = JOptionPane.showInputDialog(dialogo);
         MenuValorConsulta();
     }
     public static void MenuValorConsulta(){
@@ -76,8 +88,16 @@ public class MenuConsultas {
                         "Valor da consulta:" + valor);
 
 
+
+        CreateConsulta(data, horario, duracao, paciente, medico, BigDecimal.valueOf(Long.parseLong(valor)));
         MenuPrincipal.RunMenuPrincipal();
         //ProximoMenu();
     }
+
+
+
+
+
+
     //Exames e medicamentos
 }

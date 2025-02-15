@@ -14,11 +14,11 @@ public class Consulta {
     private boolean pago;
     private List<Medicamento> prescricao;
 
-    public Consulta(String data, String horario, String paciente, String medico, String status, BigDecimal valor) {
+    public Consulta(String data, String horario, String cpfPaciente , String cpfMedico, String status, BigDecimal valor) {
         if (data == null || data.isBlank()) throw new IllegalArgumentException("A data é obrigatória.");
         if (horario == null || horario.isBlank()) throw new IllegalArgumentException("O horário é obrigatório.");
-        if (paciente == null || paciente.isBlank()) throw new IllegalArgumentException("O paciente é obrigatório.");
-        if (medico == null || medico.isBlank()) throw new IllegalArgumentException("O médico é obrigatório.");
+        if (cpfPaciente == null || cpfPaciente.isBlank()) throw new IllegalArgumentException("O cpf do paciente é obrigatório.");
+        if (cpfMedico == null || cpfMedico.isBlank()) throw new IllegalArgumentException("O cpf do médico é obrigatório.");
         if (status == null || status.isBlank()) status = "Agendada";
 
         this.data = data;
