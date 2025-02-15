@@ -40,8 +40,14 @@ public class Medico extends Pessoa
         return historico;
     }
 
-    //to do: deletar get e sets nao utilizados
-    //separar o array de historico em consultas e exames?
+    @Override
+    public String exibirDetalhes() {
+        return "Médico: " + getNome() +
+                "\nCPF: " + getCpf() +
+                "\nData de Nascimento: " + getData_nascimento() +
+                "\nCRM: " + crm +
+                "\nEspecialidade: " + especialidade;
+    }
 
 
 }

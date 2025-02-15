@@ -12,6 +12,11 @@ public class Paciente extends Pessoa
     public Paciente(String _nome, String _cpf, String _data_nascimento) {
         super(_nome, _cpf, _data_nascimento);
     }
-}
 
-//separar o array de historico em consultas e exames?
+    @Override
+    public String exibirDetalhes() {
+        return "Paciente: " + getNome() +
+                "\nCPF: " + getCpf() +
+                "\nData de Nascimento: " + getData_nascimento();
+    }
+}

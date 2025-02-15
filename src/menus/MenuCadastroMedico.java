@@ -110,11 +110,8 @@ public class MenuCadastroMedico {
 
         JOptionPane.showMessageDialog(null,
                 "Informações cadastradas do médico:\n" +
-                        "Nome: " + medicoEncontrado.getNome() + "\n" +
-                        "CPF: " + medicoEncontrado.getCpf() + "\n" +
-                        "Data de Nascimento: " + medicoEncontrado.getData_nascimento() + "\n" +
-                        "CRM: " + medicoEncontrado.getCrm() + "\n" +
-                        "Especialidade: " + medicoEncontrado.getEspecialidade(),
+                        medicoEncontrado.exibirDetalhes(),
+
                 "Cadastro Encontrado", JOptionPane.INFORMATION_MESSAGE);
         MenuPrincipal.RunMenuPrincipal();
     }
