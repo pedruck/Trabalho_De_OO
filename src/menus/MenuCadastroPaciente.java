@@ -91,10 +91,7 @@ public class MenuCadastroPaciente
         }
 
         JOptionPane.showMessageDialog(null,
-                "Informações cadastradas do paciente:\n" +
-                        "Nome: " + pacienteEncontrado.getNome() + "\n" +
-                        "CPF: " + pacienteEncontrado.getCpf() + "\n" +
-                        "Data de Nascimento: " + pacienteEncontrado.getData_nascimento(),
+                pacienteEncontrado.exibirDetalhes(),
                 "Cadastro Encontrado", JOptionPane.INFORMATION_MESSAGE);
     }
 

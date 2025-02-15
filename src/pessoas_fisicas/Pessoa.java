@@ -38,5 +38,6 @@ public abstract class Pessoa
         this.data_nascimento = data_nascimento;
     }
 
+    public abstract String exibirDetalhes();
 
 }
