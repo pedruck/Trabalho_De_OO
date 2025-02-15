@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Consulta {
     private String data;
+    private String id;
     private String horario;
     private String paciente;
     private String medico;
@@ -14,7 +15,7 @@ public class Consulta {
     private boolean pago;
     private List<Medicamento> prescricao;
 
-    public Consulta(String data, String horario, String cpfPaciente , String cpfMedico, String status, BigDecimal valor) {
+    public Consulta(String data, String horario, String cpfPaciente , String cpfMedico, String status, BigDecimal valor, String id) {
         if (data == null || data.isBlank()) throw new IllegalArgumentException("A data é obrigatória.");
         if (horario == null || horario.isBlank()) throw new IllegalArgumentException("O horário é obrigatório.");
         if (cpfPaciente == null || cpfPaciente.isBlank()) throw new IllegalArgumentException("O cpf do paciente é obrigatório.");
@@ -29,10 +30,11 @@ public class Consulta {
         this.valor = valor;
         this.pago = false;
         this.prescricao = new ArrayList<>();
+        this.id = id;
     }
 
-    public static Consulta agendarConsulta(String data, String horario, String paciente, String medico, String status, BigDecimal valor) {
-        return new Consulta(data, horario, paciente, medico, status, valor);
+    public static Consulta agendarConsulta(String data, String horario, String paciente, String medico, String status, BigDecimal valor, String id) {
+        return new Consulta(data, horario, paciente, medico, status, valor, id);
     }
 
     public String realizarPagamento(BigDecimal valorPago) {
@@ -100,4 +102,17 @@ public class Consulta {
     public String getPaciente() {
         return paciente;
     }
+
+    public String getId(){ return id; }
+
+    public String exibirDetalhes() {
+        return "Consulta: " + getData() +
+                "\nHorário: " + getHorario() +
+                "\nCPF Paciente: " + getPaciente()+
+                "\nCPF Médico: "+ getMedico()+
+                "\nStatus: "+ getStatus()+
+                "\nValor: "+ getValor()+
+                "\nId: "+getId();
+    }
+
 }

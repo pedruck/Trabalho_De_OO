@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class MenuConsultas {
     private static String data;
+    private static String id;
     private static String horario;
     private static String duracao;
     private static String paciente;
@@ -41,7 +42,6 @@ public class MenuConsultas {
     public static void MenuDataConsulta() {
         String dialogo = "Informe a data da consulta:";
         data = JOptionPane.showInputDialog(dialogo);
-
             MenuHorarioConsulta();
     }
 
@@ -67,6 +67,13 @@ public class MenuConsultas {
         medico = JOptionPane.showInputDialog(dialogo);
         MenuValorConsulta();
     }
+
+    public static void MenuIdConsulta(){
+        String dialogo = "Informe o id da consulta:";
+        id = JOptionPane.showInputDialog(dialogo);
+        MenuValorConsulta();
+    }
+
     public static void MenuValorConsulta(){
         String dialogo = "Informe o valor da consulta:";
         valor = JOptionPane.showInputDialog(dialogo);
@@ -87,13 +94,30 @@ public class MenuConsultas {
         consultaAtual = new Consulta(data, horario, paciente, medico,"Agendada", BigDecimal.valueOf(Long.parseLong(valor)));
         GetCadastro().CadastrarConsulta(consultaAtual);
         MenuPrincipal.RunMenuPrincipal();
-        //ProximoMenu();
     }
 
 
+    public static void PesquisarConsulta(){
+        String dialogo = "Informe o id da consulta";
+        String idInput = JOptionPane.showInputDialog(dialogo);
 
+        if (idInput == null){
+            MenuPrincipal.RunMenuPrincipal();
+            return ;
+        }
+        idInput = idInput.trim();
+        Consulta consultaencontrada = CadastroConsultas.PesquisarConsulta(idInput);
 
+        if (consultaencontrada == null){
+            JOptionPane.showMessageDialog(null, "Erro: Consulta nõa encontrada!", "Erro", JOptionPane.ERROR_MESSAGE);
+            MenuPrincipal.RunMenuPrincipal();
+        }
 
+        JOptionPane.showMessageDialog(null,
+                consultaencontrada.exibirDetalhes(),
+                "Consulta Encontrada", JOptionPane.INFORMATION_MESSAGE);
+
+    }
 
 
 

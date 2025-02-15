@@ -34,6 +34,19 @@ public class CadastroConsultas {
         return null;
     }
 
+    public static Consulta PesquisarConsulta(String id)
+    {
+        for (Consulta p: consultas)
+        {
+            if (Objects.equals(p.getId(), id))
+            {
+                return p;
+            }
+
+        }
+
+        return null;
+    }
 
 
 

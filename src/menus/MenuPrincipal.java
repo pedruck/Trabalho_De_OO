@@ -42,6 +42,7 @@ public class MenuPrincipal
                         "2 - Pagamento de Consultas\n" +
                                 "3 - Pesquisar Consulta" + "\n" +
                                 "4 - Atualizar Consulta" + "\n" +
+                                "5 - Pesquisar Consulta" + "\n"+
                         "0 - Voltar";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
@@ -147,7 +148,6 @@ public class MenuPrincipal
                             break;
 
                         case 2:
-
 
                             break;
 
