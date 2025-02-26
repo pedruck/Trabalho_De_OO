@@ -14,7 +14,7 @@ public class MenuConsultas {
     private static String data;
     private static String id;
     private static String horario;
-    private static String duracao;
+    private static int duracao;
     private static String paciente;
     private static String medico;
     private static float valor;
@@ -53,24 +53,29 @@ public class MenuConsultas {
 
     public static void MenuDuracaoConsulta(){
         String dialogo = "Informe a duração da consulta:";
-        duracao = JOptionPane.showInputDialog(dialogo);
+        duracao = Integer.parseInt(JOptionPane.showInputDialog(dialogo));
         MenuPacienteConsulta();
     }
 
     public static void MenuPacienteConsulta(){
         String dialogo = "Informe o cpf do paciente da consulta:";
         paciente = JOptionPane.showInputDialog(dialogo);
-        MenuMedicoConsulta();
+
+        if(CadastroPaciente.PesquisarPaciente(paciente).isPagamento_pendente() == true)
+        {
+            JOptionPane.showMessageDialog(new JFrame("Pagamento Pendente encontrado!"),
+                    "ERRO: Este paciente possui um pagamento pendente! \n" + "Pacientes com pagamentos de consultas pendentes não podem agendar outras consultas.");
+
+            MenuPrincipal.RunMenuPrincipal();
+        }
+        else
+        {
+            MenuMedicoConsulta();
+        }
     }
     public static void MenuMedicoConsulta(){
         String dialogo = "Informe o cpf do medico da consulta:";
         medico = JOptionPane.showInputDialog(dialogo);
-        MenuValorConsulta();
-    }
-
-    public static void MenuIdConsulta(){
-        String dialogo = "Informe o id da consulta:";
-        id = JOptionPane.showInputDialog(dialogo);
         MenuValorConsulta();
     }
 
@@ -79,8 +84,13 @@ public class MenuConsultas {
         valor = Float.parseFloat(JOptionPane.showInputDialog(dialogo));
 
 
-        consultaAtual = new Consulta(data, horario, paciente, medico, "AGENDADA", valor);
+        consultaAtual = new Consulta(data, horario, paciente, medico, "AGENDADA", valor, duracao);
         GetCadastro().CadastrarConsulta(consultaAtual, medico, paciente, horario);
+
+        CadastroPaciente.PesquisarPaciente(paciente).setValor_a_ser_pago(valor);
+        CadastroPaciente.PesquisarPaciente(paciente).setPagamento_pendente(true);
+
+
 
 
         JOptionPane.showMessageDialog(new JFrame("Consulta Cadastrada!"),
@@ -93,14 +103,33 @@ public class MenuConsultas {
 
         MenuPrincipal.RunMenuPrincipal();
 
+
     }
 
+    public static void MenuPesquisarConsulta(){
+        String dialogo = "Informe o id da consulta +"+
+                "id é o cpf do médico + cpf do paciente + horário";
+        String idunput = JOptionPane.showInputDialog(dialogo);
+        Consulta c = CadastroConsultas.PesquisarConsulta(idunput);
 
+        JOptionPane.showMessageDialog(new JFrame("Consulta Encontrada!"),
+                "Informações encontradas:\n"+
+                "Data da consulta: " + c.getData() + "\n" +
+                "Horário da consulta: "+ c.getHorario()+"\n"+
+                "Duração da consulta: "+ c.getDuracao_min()+"\n"+
+                "Valor da consulta: "+ c.getValor()+"\n"+
+                        "Status da consulta: "+ c.getStatus()+"\n");
+    }
 
-
-
-
-
+    public static void MenuRemoverConsulta(){
+        String dialogo = "Informe o id da consulta +"+
+                "id é o cpf do médico + cpf do paciente + horário";
+        String idunput = JOptionPane.showInputDialog(dialogo);
+        Consulta c = CadastroConsultas.PesquisarConsulta(idunput);
+        c = null;
+        JOptionPane.showMessageDialog(new JFrame("Consulta Apagada!"),
+                "A consulta foi apagada com sucesso");
+    }
 
     //Exames e medicamentos
 }

@@ -40,7 +40,7 @@ public class MenuPrincipal
     public static int MenuPrincipalConsultas() {
         String opcoes =
                         "1 - Agendar Consulta\n" +
-                        "2 - Pagamento de Consultas\n" +
+                        "2 - Realizar Pagamento Pendente\n" +
                                 "3 - Pesquisar Consulta" + "\n" +
                                 "4 - Atualizar Consulta" + "\n" +
                                 "5 - Pesquisar Consulta" + "\n"+
@@ -194,11 +194,11 @@ public class MenuPrincipal
                             break;
 
                         case 2:
-
+                            MenuPagamento.ExecutarMenusPagamento();
                             break;
 
                         case 3:
-
+                            MenuConsultas.MenuPesquisarConsulta();
 
                             break;
 

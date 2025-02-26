@@ -11,6 +11,11 @@ public class CadastroPaciente {
 
     private static List<Paciente> pacientes;
 
+
+
+
+
+
     public CadastroPaciente()
     {
         pacientes = new ArrayList<Paciente>();
@@ -27,6 +32,7 @@ public class CadastroPaciente {
             }
 
         }
+
 
         return null;
     }

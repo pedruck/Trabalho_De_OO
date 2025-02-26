@@ -1,5 +1,7 @@
 package Consultas;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Consulta {
@@ -11,20 +13,22 @@ public class Consulta {
     private String status;
     private float valor;
     private boolean pago;
-    private List<String> medicamentoList;
-    private static List<String> exameList;
+    private List<Medicamento> prescricao;
+    private int duracao_min;
 
 
 
-    public Consulta(String _data, String _horario, String _paciente, String _medico, String _status, float _valor) {
+    public Consulta(String _data, String _horario, String _paciente, String _medico, String _status, float _valor, int duracao) {
         data = _data;
         id = null;
-        _horario = horario;
-        _paciente = paciente;
-        _medico =  medico;
-        _status = status;
-        _valor = valor;
+        horario = _horario;
+        paciente = _paciente;
+        medico = _medico;
+        status = _status;
+        valor = _valor;
         pago = false;
+        duracao_min = duracao;
+
 
     }
 
@@ -93,19 +97,19 @@ public class Consulta {
         return pago;
     }
 
-    public List<String> getMedicamentoList() {
-        return medicamentoList;
+    public List<Medicamento> getPrescricao() {
+        return prescricao;
     }
 
-    public void setMedicamentoList(List<String> medicamentoList) {
-        this.medicamentoList = medicamentoList;
+    public int getDuracao_min() {
+        return duracao_min;
     }
 
-    public static List<String> getExameList() {
-        return exameList;
+    public void setDuracao_min(int duracao_min) {
+        this.duracao_min = duracao_min;
     }
 
-    public void setExameList(List<String> exameList) {
-        this.exameList = exameList;
+    public void setPrescricao(List<Medicamento> prescricao) {
+        this.prescricao = prescricao;
     }
 }
