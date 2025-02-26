@@ -17,7 +17,7 @@ public class MenuConsultas {
     private static String duracao;
     private static String paciente;
     private static String medico;
-    private static String valor;
+    private static float valor;
     private static String exames;
     private static String medicamentos;
     private boolean pagamentoRealizado = false;
@@ -76,24 +76,24 @@ public class MenuConsultas {
 
     public static void MenuValorConsulta(){
         String dialogo = "Informe o valor da consulta:";
-        valor = JOptionPane.showInputDialog(dialogo);
+        valor = Float.parseFloat(JOptionPane.showInputDialog(dialogo));
 
-        consultaAtual = new Consulta();
+
+        consultaAtual = new Consulta(data, horario, paciente, medico, "AGENDADA", valor);
+        GetCadastro().CadastrarConsulta(consultaAtual, medico, paciente, horario);
+
 
         JOptionPane.showMessageDialog(new JFrame("Consulta Cadastrada!"),
                 "Informações cadastradas da consulta:\n" +
                         "Data da consulta: " + data +"\n" +
                         "Horario da consulta: " + horario+"\n" +
                         "Duração da consulta: " + duracao+"\n" +
-                        "Valor da consulta:" + valor);
-
-
-
-
+                        "Valor da consulta:" + valor + "\n" +
+                        "Status da consulta: " + "AGENDADA");
 
         MenuPrincipal.RunMenuPrincipal();
-    }
 
+    }
 
 
 

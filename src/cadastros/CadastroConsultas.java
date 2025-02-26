@@ -16,6 +16,8 @@ public class CadastroConsultas {
         consultas = new ArrayList<Consulta>();
     }
 
+
+
     private void GerarID (String cpfMedico, String cpfPacinte, String horario, Consulta consulta)
     {
         consulta.setId(cpfMedico + cpfPacinte + horario);

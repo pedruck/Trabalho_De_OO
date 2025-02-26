@@ -17,9 +17,9 @@ public class Consulta {
 
 
 
-    public Consulta(String _data, String _id, String _horario, String _paciente, String _medico, String _status, float _valor) {
+    public Consulta(String _data, String _horario, String _paciente, String _medico, String _status, float _valor) {
         data = _data;
-        _id = id;
+        id = null;
         _horario = horario;
         _paciente = paciente;
         _medico =  medico;
