@@ -227,7 +227,6 @@ public class MenuPrincipal
 
                                 case 2:
                                     break;
-
                                 case 0:
 
                                     RunMenuPrincipal();
@@ -238,7 +237,7 @@ public class MenuPrincipal
                             option = MenuPrincipal.MenuMedicamentos();
                             switch (option) {
                                 case 1:
-                                    break;
+                                    MenuPrincipalPrescreverMedicamento.MenuCpfMedico();
 
                                 case 2:
                                     break;
