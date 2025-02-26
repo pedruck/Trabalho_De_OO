@@ -50,7 +50,7 @@ public class MenuCadastroPaciente
             return;
         }
 
-        if(paciente != null && cadastro.PesquisarPaciente(cpfInput) != null ) {
+        if(paciente != null && CadastroPaciente.PesquisarPaciente(cpfInput) != null ) {
             JOptionPane.showMessageDialog(new JFrame("Cadastro concluido!"),
                     "ERRO: CPF já cadastrado!");
 
@@ -61,7 +61,8 @@ public class MenuCadastroPaciente
         }
     }
 
-    public static void MenuRemoverPaciente() {
+    public static void MenuRemoverPaciente()
+    {
         String dialogo = "Informe o cpf a ser removido:";
         String cpfInput = JOptionPane.showInputDialog(dialogo);
         cpf = cpfInput;
