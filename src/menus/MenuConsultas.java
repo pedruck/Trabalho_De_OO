@@ -92,7 +92,7 @@ public class MenuConsultas {
 
 
 
-        GetCadastro().CadastrarConsulta(consultaAtual);
+
         MenuPrincipal.RunMenuPrincipal();
     }
 
