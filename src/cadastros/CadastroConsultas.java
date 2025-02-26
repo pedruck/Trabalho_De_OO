@@ -29,13 +29,24 @@ public class CadastroConsultas {
         }
     }
 
-    public static Consulta PesquisarConsulta(String id) {
-        for (Consulta c: consultas) {
+    public static Consulta PesquisarConsulta(String id)
+    {
+
+        for (Consulta c: consultas)
+        {
             if (Objects.equals(c.getId(), id)) {
                 return c;
             }
         }
+
         return null;
+    }
+
+    public static void RemoverConsulta(String id) {
+        Consulta consulta = PesquisarConsulta(id);
+        if (consulta != null) {
+            consultas.remove(consulta);
+        }
     }
 
 

@@ -77,10 +77,8 @@ public class MenuConsultas {
     public static void MenuValorConsulta(){
         String dialogo = "Informe o valor da consulta:";
         valor = JOptionPane.showInputDialog(dialogo);
-        //consulta = new Consulta(data, horario, duracao, paciente, )
 
-        //Cadastra a consulta em objeto (completa o codigo acima)  novo de tipo Consulta E completa as o JOPTIONDIALOG com oq falta tmj
-
+        consultaAtual = new Consulta();
 
         JOptionPane.showMessageDialog(new JFrame("Consulta Cadastrada!"),
                 "Informações cadastradas da consulta:\n" +
