@@ -226,7 +226,7 @@ public class MenuPrincipal
                                     MenuPrincipalPrescreverExame.MenuCpfMedico();
 
                                 case 2:
-                                    break;
+                                    MenuPesquisarExame.pesquisarExames();
                                 case 0:
 
                                     RunMenuPrincipal();
@@ -240,7 +240,7 @@ public class MenuPrincipal
                                     MenuPrincipalPrescreverMedicamento.MenuCpfMedico();
 
                                 case 2:
-                                    break;
+                                    MenuPesquisarMedicamento.pesquisarMedicamentos();
 
                                 case 0:
 
