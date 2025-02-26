@@ -9,6 +9,7 @@ public class MenuPrincipal
         String opcoes =
                 "1 - Cadastros\n" +
                 "2 - Consultas\n" +
+                "3 - Prescrições\n" +
                 "0 - Sair";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
@@ -81,6 +82,51 @@ public class MenuPrincipal
                         "2 - Editar cadastro existente\n" +
                         "3 - Remover cadastro existente\n" +
                         "4 - Procurar paciente cadastrado\n" +
+                        "0 - Voltar";
+
+        String option_pannel = JOptionPane.showInputDialog(opcoes);
+        if (option_pannel == null)
+        {
+            System.exit(0);
+            return 0;
+        }
+        else { return Integer.parseInt(option_pannel); }
+    }
+
+    public static int MenuMedicamentos() {
+        String opcoes =
+                        "1 - Prescrever medicamento\n" +
+                        "2 - Procurar prescrição\n" +
+                        "0 - Voltar";
+
+        String option_pannel = JOptionPane.showInputDialog(opcoes);
+        if (option_pannel == null)
+        {
+            System.exit(0);
+            return 0;
+        }
+        else { return Integer.parseInt(option_pannel); }
+    }
+
+    public static int MenuExames() {
+        String opcoes =
+                        "1 - Prescrever exame\n" +
+                        "2 - Procurar exame\n" +
+                        "0 - Voltar";
+
+        String option_pannel = JOptionPane.showInputDialog(opcoes);
+        if (option_pannel == null)
+        {
+            System.exit(0);
+            return 0;
+        }
+        else { return Integer.parseInt(option_pannel); }
+    }
+
+    public static int MenuPescricoes() {
+        String opcoes =
+                        "1 - Exames\n" +
+                        "2 - Medicamentos\n" +
                         "0 - Voltar";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
@@ -168,6 +214,36 @@ public class MenuPrincipal
                     }
                     break;
 
+                case 3:
+
+                    option = MenuPrincipal.MenuPescricoes();
+                    switch (option)
+                    {
+                        case 1:
+                            option = MenuPrincipal.MenuExames();
+                            switch (option) {
+                                case 1:
+                                    break;
+
+                                case 2:
+                                    break;
+                            }
+
+                        case 2:
+                            option = MenuPrincipal.MenuMedicamentos();
+                            switch (option) {
+                                case 1:
+                                    break;
+
+                                case 2:
+                                    break;
+                            }
+
+                        default:
+                            ErroOpcaoInvalida();
+                            break;
+                    }
+                    break;
 
                 default:
                     ErroOpcaoInvalida();
