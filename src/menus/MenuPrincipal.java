@@ -198,7 +198,7 @@ public class MenuPrincipal
                             break;
 
                         case 3:
-
+                            MenuConsultas.MenuPesquisarConsulta();
 
                             break;
 
