@@ -13,7 +13,7 @@ public class Consulta {
     private String status;
     private float valor;
     private boolean pago;
-    private List<Medicamento> prescricao;
+  //  private List<Medicamento> prescricao;
     private int duracao_min;
 
 
@@ -97,9 +97,9 @@ public class Consulta {
         return pago;
     }
 
-    public List<Medicamento> getPrescricao() {
-        return prescricao;
-    }
+  // public List<Medicamento> getPrescricao() {
+ //       return prescricao;
+ //   }
 
     public int getDuracao_min() {
         return duracao_min;
@@ -109,7 +109,7 @@ public class Consulta {
         this.duracao_min = duracao_min;
     }
 
-    public void setPrescricao(List<Medicamento> prescricao) {
-        this.prescricao = prescricao;
-    }
+  //  public void setPrescricao(List<Medicamento> prescricao) {
+ //       this.prescricao = prescricao;
+ //   }
 }
