@@ -12,41 +12,45 @@ public class CadastroConsultas {
 
     private static List<Consulta> consultas;
 
-    public CadastroConsultas()
-    {
+    public CadastroConsultas() {
         consultas = new ArrayList<Consulta>();
-
     }
 
-    public static void CadastrarConsulta (Consulta consulta) {
-        {
+
+
+    private void GerarID (String cpfMedico, String cpfPacinte, String horario, Consulta consulta)
+    {
+        consulta.setId(cpfMedico + cpfPacinte + horario);
+    }
+
+    public void CadastrarConsulta(Consulta consulta, String cpfMedico, String cpfPacinte, String horario)
+    {
+        if (PesquisarConsulta(consulta.getId()) == null) {
             consultas.add(consulta);
+            GerarID(cpfMedico, cpfPacinte, horario, consulta);
         }
-    }
-
-    public static Consulta PesquisarMedico(String cpfMedico, String data, String horario) {
-        for (Consulta m: consultas)
-        {
-            if (Objects.equals(m.getMedico(), cpfMedico) && Objects.equals(m.getData(), data) && Objects.equals(m.getHorario(), horario)) {
-                return m;
-            }
-        }
-        return null;
     }
 
     public static Consulta PesquisarConsulta(String id)
     {
-        for (Consulta p: consultas)
-        {
-            if (Objects.equals(p.getId(), id))
-            {
-                return p;
-            }
 
+        for (Consulta c: consultas)
+        {
+            if (Objects.equals(c.getId(), id)) {
+                return c;
+            }
         }
 
         return null;
     }
+
+    public static void RemoverConsulta(String id) {
+        Consulta consulta = PesquisarConsulta(id);
+        if (consulta != null) {
+            consultas.remove(consulta);
+        }
+    }
+
 
 
 
