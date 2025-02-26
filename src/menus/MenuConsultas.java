@@ -60,7 +60,18 @@ public class MenuConsultas {
     public static void MenuPacienteConsulta(){
         String dialogo = "Informe o cpf do paciente da consulta:";
         paciente = JOptionPane.showInputDialog(dialogo);
-        MenuMedicoConsulta();
+
+        if(CadastroPaciente.PesquisarPaciente(paciente).isPagamento_pendente() == true)
+        {
+            JOptionPane.showMessageDialog(new JFrame("Pagamento Pendente encontrado!"),
+                    "ERRO: Este paciente possui um pagamento pendente! \n" + "Pacientes com pagamentos de consultas pendentes não podem agendar outras consultas.");
+
+            MenuPrincipal.RunMenuPrincipal();
+        }
+        else
+        {
+            MenuMedicoConsulta();
+        }
     }
     public static void MenuMedicoConsulta(){
         String dialogo = "Informe o cpf do medico da consulta:";
@@ -76,6 +87,9 @@ public class MenuConsultas {
         consultaAtual = new Consulta(data, horario, paciente, medico, "AGENDADA", valor, duracao);
         GetCadastro().CadastrarConsulta(consultaAtual, medico, paciente, horario);
 
+        CadastroPaciente.PesquisarPaciente(paciente).setValor_a_ser_pago(valor);
+        CadastroPaciente.PesquisarPaciente(paciente).setPagamento_pendente(true);
+
 
 
 
@@ -88,6 +102,7 @@ public class MenuConsultas {
                         "Status da consulta: " + "AGENDADA");
 
         MenuPrincipal.RunMenuPrincipal();
+
 
     }
 
