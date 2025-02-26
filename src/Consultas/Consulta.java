@@ -1,7 +1,5 @@
 package Consultas;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Consulta {
@@ -13,7 +11,8 @@ public class Consulta {
     private String status;
     private float valor;
     private boolean pago;
-    private List<Medicamento> prescricao;
+    private List<String> medicamentoList;
+    private static List<String> exameList;
 
 
 
@@ -94,11 +93,19 @@ public class Consulta {
         return pago;
     }
 
-    public List<Medicamento> getPrescricao() {
-        return prescricao;
+    public List<String> getMedicamentoList() {
+        return medicamentoList;
     }
 
-    public void setPrescricao(List<Medicamento> prescricao) {
-        this.prescricao = prescricao;
+    public void setMedicamentoList(List<String> medicamentoList) {
+        this.medicamentoList = medicamentoList;
+    }
+
+    public static List<String> getExameList() {
+        return exameList;
+    }
+
+    public void setExameList(List<String> exameList) {
+        this.exameList = exameList;
     }
 }

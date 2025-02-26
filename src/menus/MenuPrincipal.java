@@ -223,9 +223,14 @@ public class MenuPrincipal
                             option = MenuPrincipal.MenuExames();
                             switch (option) {
                                 case 1:
-                                    break;
+                                    MenuPrincipalPrescreverExame.MenuCpfMedico();
 
                                 case 2:
+                                    break;
+
+                                case 0:
+
+                                    RunMenuPrincipal();
                                     break;
                             }
 
@@ -236,6 +241,11 @@ public class MenuPrincipal
                                     break;
 
                                 case 2:
+                                    break;
+
+                                case 0:
+
+                                    RunMenuPrincipal();
                                     break;
                             }
 
