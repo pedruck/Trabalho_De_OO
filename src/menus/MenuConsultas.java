@@ -106,14 +106,30 @@ public class MenuConsultas {
 
     }
 
+    public static void MenuPesquisarConsulta(){
+        String dialogo = "Informe o id da consulta +"+
+                "id é o cpf do médico + cpf do paciente + horário";
+        String idunput = JOptionPane.showInputDialog(dialogo);
+        Consulta c = CadastroConsultas.PesquisarConsulta(idunput);
 
+        JOptionPane.showMessageDialog(new JFrame("Consulta Encontrada!"),
+                "Informações encontradas:\n"+
+                "Data da consulta: " + c.getData() + "\n" +
+                "Horário da consulta: "+ c.getHorario()+"\n"+
+                "Duração da consulta: "+ c.getDuracao_min()+"\n"+
+                "Valor da consulta: "+ c.getValor()+"\n"+
+                        "Status da consulta: "+ c.getStatus()+"\n");
+    }
 
-
-
-
-
-
-
+    public static void MenuRemoverConsulta(){
+        String dialogo = "Informe o id da consulta +"+
+                "id é o cpf do médico + cpf do paciente + horário";
+        String idunput = JOptionPane.showInputDialog(dialogo);
+        Consulta c = CadastroConsultas.PesquisarConsulta(idunput);
+        c = null;
+        JOptionPane.showMessageDialog(new JFrame("Consulta Apagada!"),
+                "A consulta foi apagada com sucesso");
+    }
 
     //Exames e medicamentos
 }
