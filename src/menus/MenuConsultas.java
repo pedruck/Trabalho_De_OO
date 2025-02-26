@@ -91,33 +91,13 @@ public class MenuConsultas {
 
 
 
-        consultaAtual = new Consulta(data, horario, paciente, medico,"Agendada", BigDecimal.valueOf(Long.parseLong(valor)));
+
         GetCadastro().CadastrarConsulta(consultaAtual);
         MenuPrincipal.RunMenuPrincipal();
     }
 
 
-    public static void PesquisarConsulta(){
-        String dialogo = "Informe o id da consulta";
-        String idInput = JOptionPane.showInputDialog(dialogo);
 
-        if (idInput == null){
-            MenuPrincipal.RunMenuPrincipal();
-            return ;
-        }
-        idInput = idInput.trim();
-        Consulta consultaencontrada = CadastroConsultas.PesquisarConsulta(idInput);
-
-        if (consultaencontrada == null){
-            JOptionPane.showMessageDialog(null, "Erro: Consulta nõa encontrada!", "Erro", JOptionPane.ERROR_MESSAGE);
-            MenuPrincipal.RunMenuPrincipal();
-        }
-
-        JOptionPane.showMessageDialog(null,
-                consultaencontrada.exibirDetalhes(),
-                "Consulta Encontrada", JOptionPane.INFORMATION_MESSAGE);
-
-    }
 
 
 

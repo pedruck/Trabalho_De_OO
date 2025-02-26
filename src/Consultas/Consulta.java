@@ -11,108 +11,79 @@ public class Consulta {
     private String paciente;
     private String medico;
     private String status;
-    private BigDecimal valor;
+    private float valor;
     private boolean pago;
     private List<Medicamento> prescricao;
 
-    public Consulta(String data, String horario, String cpfPaciente , String cpfMedico, String status, BigDecimal valor, String id) {
-        if (data == null || data.isBlank()) throw new IllegalArgumentException("A data é obrigatória.");
-        if (horario == null || horario.isBlank()) throw new IllegalArgumentException("O horário é obrigatório.");
-        if (cpfPaciente == null || cpfPaciente.isBlank()) throw new IllegalArgumentException("O cpf do paciente é obrigatório.");
-        if (cpfMedico == null || cpfMedico.isBlank()) throw new IllegalArgumentException("O cpf do médico é obrigatório.");
-        if (status == null || status.isBlank()) status = "Agendada";
-
+    public void setData(String data) {
         this.data = data;
-        this.horario = horario;
-        this.paciente = paciente;
-        this.medico = medico;
-        this.status = status;
-        this.valor = valor;
-        this.pago = false;
-        this.prescricao = new ArrayList<>();
-        this.id = id;
-    }
-
-    public static Consulta agendarConsulta(String data, String horario, String paciente, String medico, String status, BigDecimal valor, String id) {
-        return new Consulta(data, horario, paciente, medico, status, valor, id);
-    }
-
-    public String realizarPagamento(BigDecimal valorPago) {
-        if (valor == null) throw new IllegalArgumentException("Valor da consulta inválido.");
-        if (valorPago.compareTo(valor) >= 0) {
-            this.pago = true;
-            this.status = "Paga";
-            return ("Pagamento realizado com sucesso! Status: " + this.status);
-        } else {
-            this.pago = false;
-            this.status = "Pendente";
-            return ("Pagamento insuficiente. Status: " + this.status);
-        }
-    }
-
-    public void prescreverMedicamento(Medicamento medicamento) {
-        if (medicamento == null) throw new IllegalArgumentException("Medicamento inválido.");
-        this.prescricao.add(medicamento);
-    }
-
-    public String exibirPrescricao()
-    {
-        String retorno = "";
-        if (prescricao.isEmpty()) {
-            return "Nenhum medicamento prescrito.";
-        } else {
-            for (Medicamento medicamento : prescricao) {
-                retorno += medicamento.exibirInformacoes() + "\n";
-            }
-
-
-            return "Medicamentos prescritos:" + "\n" + retorno;
-
-        }
-    }
-
-    public String getStatus() {
-        return pago ? "Pago" : "Pendente";
-    }
-
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public Consulta getPrescricao() {
-        return this;
-    }
-
-    public void exibirMedicamentos() {
-        exibirPrescricao();
     }
 
     public String getData() {
         return data;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     public String getHorario() {
         return horario;
     }
 
-    public String getMedico() {
-        return medico;
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 
     public String getPaciente() {
         return paciente;
     }
 
-    public String getId(){ return id; }
-
-    public String exibirDetalhes() {
-        return "Consulta: " + getData() +
-                "\nHorário: " + getHorario() +
-                "\nCPF Paciente: " + getPaciente()+
-                "\nCPF Médico: "+ getMedico()+
-                "\nStatus: "+ getStatus()+
-                "\nValor: "+ getValor()+
-                "\nId: "+getId();
+    public void setPaciente(String paciente) {
+        this.paciente = paciente;
     }
 
+    public String getMedico() {
+        return medico;
+    }
+
+    public void setMedico(String medico) {
+        this.medico = medico;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
+
+    public void setPago(boolean pago) {
+        this.pago = pago;
+    }
+
+    public boolean isPago() {
+        return pago;
+    }
+
+    public List<Medicamento> getPrescricao() {
+        return prescricao;
+    }
+
+    public void setPrescricao(List<Medicamento> prescricao) {
+        this.prescricao = prescricao;
+    }
 }
