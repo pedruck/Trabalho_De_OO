@@ -79,31 +79,28 @@ public class MenuConsultas {
         MenuValorConsulta();
     }
 
-    public static void MenuValorConsulta(){
+    public static void MenuValorConsulta()
+    {
         String dialogo = "Informe o valor da consulta:";
         valor = Float.parseFloat(JOptionPane.showInputDialog(dialogo));
 
-
-        consultaAtual = new Consulta(data, horario, paciente, medico, "AGENDADA", valor, duracao);
-        GetCadastro().CadastrarConsulta(consultaAtual, medico, paciente, horario);
-
-        CadastroPaciente.PesquisarPaciente(paciente).setValor_a_ser_pago(valor);
-        CadastroPaciente.PesquisarPaciente(paciente).setPagamento_pendente(true);
+            consultaAtual = new Consulta(data, horario, paciente, medico, "AGENDADA", valor, duracao);
+            GetCadastro().CadastrarConsulta(consultaAtual, medico, paciente, horario);
 
 
+            CadastroPaciente.PesquisarPaciente(paciente).setValor_a_ser_pago(valor);
+            CadastroPaciente.PesquisarPaciente(paciente).setPagamento_pendente(true);
 
 
-        JOptionPane.showMessageDialog(new JFrame("Consulta Cadastrada!"),
-                "Informações cadastradas da consulta:\n" +
-                        "Data da consulta: " + data +"\n" +
-                        "Horario da consulta: " + horario+"\n" +
-                        "Duração da consulta: " + duracao+"\n" +
-                        "Valor da consulta:" + valor + "\n" +
-                        "Status da consulta: " + "AGENDADA");
+            JOptionPane.showMessageDialog(new JFrame("Consulta Cadastrada!"),
+                    "Informações cadastradas da consulta:\n" +
+                            "Data da consulta: " + data + "\n" +
+                            "Horario da consulta: " + horario + "\n" +
+                            "Duração da consulta: " + duracao + "\n" +
+                            "Valor da consulta:" + valor + "\n" +
+                            "Status da consulta: " + "AGENDADA");
 
-        MenuPrincipal.RunMenuPrincipal();
-
-
+            MenuPrincipal.RunMenuPrincipal();
     }
 
     public static void MenuPesquisarConsulta(){

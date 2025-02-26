@@ -42,8 +42,8 @@ public class MenuPrincipal
                         "1 - Agendar Consulta\n" +
                         "2 - Realizar Pagamento Pendente\n" +
                                 "3 - Pesquisar Consulta" + "\n" +
-                                "4 - Atualizar Consulta" + "\n" +
-                                "5 - Pesquisar Consulta" + "\n"+
+                                "4 - Remover Consulta" + "\n" +
+
                         "0 - Voltar";
 
         String option_pannel = JOptionPane.showInputDialog(opcoes);
@@ -204,7 +204,7 @@ public class MenuPrincipal
 
                         case 4:
 
-
+                            MenuConsultas.MenuRemoverConsulta();
                             break;
 
                         default:
