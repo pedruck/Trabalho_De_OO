@@ -109,6 +109,7 @@ public class MenuConsultas {
         String idunput = JOptionPane.showInputDialog(dialogo);
         Consulta c = CadastroConsultas.PesquisarConsulta(idunput);
 
+
         JOptionPane.showMessageDialog(new JFrame("Consulta Encontrada!"),
                 "Informações encontradas:\n"+
                 "Data da consulta: " + c.getData() + "\n" +
@@ -116,16 +117,19 @@ public class MenuConsultas {
                 "Duração da consulta: "+ c.getDuracao_min()+"\n"+
                 "Valor da consulta: "+ c.getValor()+"\n"+
                         "Status da consulta: "+ c.getStatus()+"\n");
+        MenuPrincipal.RunMenuPrincipal();
     }
 
     public static void MenuRemoverConsulta(){
         String dialogo = "Informe o id da consulta +"+
                 "id é o cpf do médico + cpf do paciente + horário";
-        String idunput = JOptionPane.showInputDialog(dialogo);
-        Consulta c = CadastroConsultas.PesquisarConsulta(idunput);
-        c = null;
-        JOptionPane.showMessageDialog(new JFrame("Consulta Apagada!"),
-                "A consulta foi apagada com sucesso");
+        String idinput = JOptionPane.showInputDialog(dialogo);
+        id = idinput;
+
+        CadastroConsultas.RemoverConsulta(id);
+
+        JOptionPane.showMessageDialog(null, "Caso exista uma consulta com esse id, ela foi deletada!");
+        MenuPrincipal.RunMenuPrincipal();
     }
 
     //Exames e medicamentos
